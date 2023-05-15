@@ -11,8 +11,11 @@
  
 --- 
 ### 2. 와이어프레임
+#### 2-1 메인 페이지 
+  ![image](https://github.com/1L4K/toy-project/assets/57711744/4ecfb3a7-836d-44b4-92a6-7e1ef701bb64)
 
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fah4NkV9rDNer0znHwqajom%2FUntitled%3Ftype%3Ddesign%26node-id%3D0%253A1%26t%3DF3yTBJESif0zfqPk-1" allowfullscreen></iframe>
+#### 2-2 개인 페이지
+  ![image](https://github.com/1L4K/toy-project/assets/57711744/55ecfec7-31f7-4850-a367-5d3ee1de12e7)
 
 ---
 
