@@ -50,7 +50,15 @@
       object-fit: cover;
       border-radius: 70%;
     }
-
+    .imformation {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .accordion {
+      width: 95%;
+    }
     .comments {
       width: 95%;
       margin: 20px auto 20px auto;
@@ -65,13 +73,12 @@
     .mypost {
       width: 50%;
       max-width: 500px;
-      margin: 20px auto 20px auto;
-      padding: 20px;
+      margin: 20px 20px 20px auto;
     }
 
     .mypost>button {
-            margin-top: 15px;
-        }
+      margin-top: 15px;
+    }
 
     .mycards {
       width: 95%;
@@ -94,65 +101,69 @@
       alt="member5 image">
     <p class="name">김승수</p>
   </div>
-  <div class="accordion" id="accordionPanelsStayOpenExample">
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse"
-          data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false" aria-controls="panelsStayOpen-collapseOne">
-          MBTI
-        </button>
-      </h2>
-      <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse collapse"
-        aria-labelledby="panelsStayOpen-headingOne">
-        <div class="accordion-body">
-          <strong>INFP</strong>사실 i를 제외하곤 거기서 거기
+  <div class="imformation">
+    <div class="accordion" id="accordionPanelsStayOpenExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse"
+            data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false"
+            aria-controls="panelsStayOpen-collapseOne">
+            MBTI
+          </button>
+        </h2>
+        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse collapse"
+          aria-labelledby="panelsStayOpen-headingOne">
+          <div class="accordion-body">
+            <strong>INFP</strong>사실 i를 제외하곤 거기서 거기
+          </div>
         </div>
       </div>
-    </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-          data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-          장점
-        </button>
-      </h2>
-      <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
-        aria-labelledby="panelsStayOpen-headingTwo">
-        <div class="accordion-body">
-          맡은 일은 끝까지!<br>
-          꽂히면 파고든다!
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+            aria-controls="panelsStayOpen-collapseTwo">
+            장점
+          </button>
+        </h2>
+        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
+          aria-labelledby="panelsStayOpen-headingTwo">
+          <div class="accordion-body">
+            맡은 일은 끝까지!<br>
+            꽂히면 파고든다!
+          </div>
         </div>
       </div>
-    </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="panelsStayOpen-headingThree">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-          data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
-          aria-controls="panelsStayOpen-collapseThree">
-          스타일
-        </button>
-      </h2>
-      <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
-        aria-labelledby="panelsStayOpen-headingThree">
-        <div class="accordion-body">
-          먼저 듣고 추가적인 의견이 있으면 첨언하는 스타일 <br>
-          조용할 때는 대부분 머리속으로 생각을 정리하고 있는 중
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+            aria-controls="panelsStayOpen-collapseThree">
+            스타일
+          </button>
+        </h2>
+        <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
+          aria-labelledby="panelsStayOpen-headingThree">
+          <div class="accordion-body">
+            먼저 듣고 추가적인 의견이 있으면 첨언하는 스타일 <br>
+            조용할 때는 대부분 머리속으로 생각을 정리하고 있는 중
+          </div>
         </div>
       </div>
-    </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="panelsStayOpen-headingThree">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-          data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false"
-          aria-controls="panelsStayOpen-collapseFour">
-          블로그
-        </button>
-      </h2>
-      <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse"
-        aria-labelledby="panelsStayOpen-headingFour">
-        <div class="accordion-body">
-          <a href="https://velog.io/@kss123456789"><img src="https://static.velog.io/favicons/apple-icon-152x152.png"
-              alt="velog favicons"></a>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false"
+            aria-controls="panelsStayOpen-collapseFour">
+            블로그
+          </button>
+        </h2>
+        <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse"
+          aria-labelledby="panelsStayOpen-headingFour">
+          <div class="accordion-body">
+            <a href="https://velog.io/@kss123456789"><img src="https://static.velog.io/favicons/apple-icon-152x152.png"
+                alt="velog favicons"></a>
+          </div>
         </div>
       </div>
     </div>
