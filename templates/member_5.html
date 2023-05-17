@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+  <title>개인소개페이지_김승수</title>
+
+  <meta property="og:title" content="개인소개페이지_김승수" />
+  <meta property="og:description" content='김승수 라는 사람에 대해 알아보자' />
+  <meta property="og:image"
+    content="https://images.unsplash.com/photo-1601829534265-66684bd4dcc6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap"
+    rel="stylesheet" />
+  <style>
+    .profile {
+      margin: 20px auto 20px auto;
+
+      display: flex;
+      flex-direction: row;
+      align-items: stretch;
+      justify-content: center;
+
+      width: 100%;
+      max-width: 1000px;
+    }
+
+    .profile>.name {
+      font-size: 7vw;
+      margin: 0 0 0 3vw;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+    }
+
+    .profile>.profile_pic {
+      width: 50%;
+      object-fit: cover;
+      border-radius: 70%;
+    }
+
+    .comments {
+      width: 95%;
+      margin: 20px auto 20px auto;
+      box-shadow: 0px 0px 3px 0px black;
+      padding: 20px;
+
+      display: flex;
+      flex-direction: row;
+      align-items: normal;
+      justify-content: center;
+    }
+
+    .mypost {
+      width: 50%;
+      max-width: 500px;
+      margin: 20px auto 20px auto;
+      padding: 20px;
+    }
+
+    .mypost>button {
+            margin-top: 15px;
+        }
+
+    .mycards {
+      width: 95%;
+      max-width: 500px;
+      margin: auto;
+    }
+
+    .mycards>.card {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+  </style>
+  <script></script>
+</head>
+
+<body style="background-color: transparent;">
+  <div class="profile">
+    <img class="profile_pic"
+      src="https://images.unsplash.com/photo-1601829534265-66684bd4dcc6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80"
+      alt="member5 image">
+    <p class="name">김승수</p>
+  </div>
+  <div class="accordion" id="accordionPanelsStayOpenExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+          data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false" aria-controls="panelsStayOpen-collapseOne">
+          MBTI
+        </button>
+      </h2>
+      <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse collapse"
+        aria-labelledby="panelsStayOpen-headingOne">
+        <div class="accordion-body">
+          <strong>INFP</strong>사실 i를 제외하곤 거기서 거기
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+          장점
+        </button>
+      </h2>
+      <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
+        aria-labelledby="panelsStayOpen-headingTwo">
+        <div class="accordion-body">
+          맡은 일은 끝까지!<br>
+          꽂히면 파고든다!
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+          aria-controls="panelsStayOpen-collapseThree">
+          스타일
+        </button>
+      </h2>
+      <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
+        aria-labelledby="panelsStayOpen-headingThree">
+        <div class="accordion-body">
+          먼저 듣고 추가적인 의견이 있으면 첨언하는 스타일 <br>
+          조용할 때는 대부분 머리속으로 생각을 정리하고 있는 중
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false"
+          aria-controls="panelsStayOpen-collapseFour">
+          블로그
+        </button>
+      </h2>
+      <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse"
+        aria-labelledby="panelsStayOpen-headingFour">
+        <div class="accordion-body">
+          <a href="https://velog.io/@kss123456789"><img src="https://static.velog.io/favicons/apple-icon-152x152.png"
+              alt="velog favicons"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="comments">
+    <div class="mypost">
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="name" placeholder="url" />
+        <label for="floatingInput">닉네임</label>
+      </div>
+      <div class="form-floating">
+        <textarea class="form-control" placeholder="Leave a comment here" id="comment" style="height: 100px"></textarea>
+        <label for="floatingTextarea2">말말말</label>
+      </div>
+      <button onclick="save_comment()" type="button" class="btn btn-dark">
+        댓글 남기기
+      </button>
+    </div>
+    <div class="mycards" id="comment-list">
+      <div class="card">
+        <div class="card-body">
+          <blockquote class="blockquote mb-0">
+            <p>sdfsdfs</p>
+            <footer class="blockquote-footer">
+              dfsdfdsf
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <blockquote class="blockquote mb-0">
+            <p>sdfsdfs</p>
+            <footer class="blockquote-footer">
+              dfsdfdsf
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <blockquote class="blockquote mb-0">
+            <p>sdfsdfs</p>
+            <footer class="blockquote-footer">
+              dfsdfdsf
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <blockquote class="blockquote mb-0">
+            <p>sdfsdfs</p>
+            <footer class="blockquote-footer">
+              dfsdfdsf
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
