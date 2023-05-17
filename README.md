@@ -36,6 +36,6 @@
 ### 4. local 환경 개발
 
 1. python -m venv venv
-2. source venv/bin/activate
+2. source venv/bin/activate (window git bash 기준 source venv/Scripts/activate)
 3. pip install -r
 4. python app.py
