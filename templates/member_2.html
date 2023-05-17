@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <title>개인 페이지</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: 'Gowun Dodum', sans-serif;
+        }
+
+        .mytitle {
+            width: 100%;
+            height: 500px;
+
+            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://libreddit.domain.glass/preview/pre/of2jpfqct9l71.jpg?width=2500&format=pjpg&auto=webp&v=enabled&s=78b6bed45cad630dff7e64da2301ff0e6977f72f');
+            background-position: center;
+            background-size: cover;
+
+            color: white;
+
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .profileImg {
+            width: 15%;
+            height: 400px;            
+            border-radius: 10px;
+            background-color: transparent;
+
+            margin: 10px 10px 10px 10px;
+            padding: 10px 10px 10px 10px;
+
+            display: flex;            
+            flex-direction: column;
+            align-items: center;            
+            justify-content: center;
+
+            font-size: 30px;
+        }
+
+
+        .profileContent {
+            display: flex;
+            flex-direction: column;
+            width: 25%;
+            height: 400px;
+            border-radius: 10px;
+            background-color: transparent;
+
+            margin: 10px 10px 10px 10px;
+            padding: 20px 20px 20px 20px;
+        }
+        .profileContent>h2 {
+            color: yellow;
+        }
+
+        .form-floating {
+            /* display: inline-block; */
+            flex-direction: row;
+        }
+
+        .mybox {
+            width: 95%;
+            max-width: 1000px;
+            padding: 20px;
+            box-shadow: 0px 0px 10px 0px gray;
+            margin: 20px auto;
+            border-radius: 10px;
+        }
+
+        .myreply {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .myreply .comment {
+            justify-content: space-between;
+        }
+
+
+        .myreply>input {
+            width: 70%;
+        }
+
+        .mybox>li {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+
+            margin-bottom: 10px;
+            min-height: 48px;
+        }
+    </style>
+    <script>
+        // const replyCount = document.querySelector('')
+
+        $(document).ready(function () {
+            listing();
+        });
+
+        function listing() {
+            fetch('/reply').then((res) => res.json()).then((data) => {
+                let rows = data['result']
+                rows.forEach((a) => {
+                    let writer = a['writer']
+                    let comment = a['comment']
+
+                    let temp_html = `<li>
+                                        <div class="input-group">
+                                            <label class="input-group-text">${writer}</label>
+                                            <span type="text" class="form-control">${comment}</span>
+                                            <button class="btn btn-outline-dark" type="button" onclick="replyDelete()">삭제</button>
+                                        </div>
+                                    </li>`
+                    $('#reply-box').append(temp_html)
+                })
+            })
+        }
+
+        function posting() {
+            let writer = $('#writer').val()
+            let password = $('#password').val()
+            let comment = $('#comment').val()
+
+            let formData = new FormData();
+            formData.append("writer_give", writer);
+            formData.append("password_give", password);
+            formData.append("comment_give", comment);
+
+            fetch('/reply', { method: "POST", body: formData }).then((res) => res.json()).then((data) => {
+                alert(data['msg'])
+                window.location.reload()
+            })
+        }
+
+        function replyDelete() {
+            let writer = $('#writer').val()
+
+            let formData = new FormData();
+            formData.append("writer_give", writer);
+            fetch('/reply', { method: "DELETE", body: formData })
+        }
+    </script>
+</head>
+
+<body>
+    <!-- 상단 메뉴 -->
+    <div class="container-fluid">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">김 사이에 낀 이</a>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        팀원 소개
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="/member/1">김광일</a></li>
+                        <li><a class="dropdown-item" href="/member/2">김정우</a></li>
+                        <li><a class="dropdown-item" href="/member/3">이성목</a></li>
+                        <li><a class="dropdown-item" href="/member/4">김진우</a></li>
+                        <li><a class="dropdown-item" href="/member/5">김승수</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="mytitle">
+        <div class="profileImg">
+            <img width="110%" src="https://postfiles.pstatic.net/MjAyMzA1MTdfMjY4/MDAxNjg0MzE3NzA4OTk2.OSGZfU6hL697ClZhOeBcYIEGOdXesoPR0N7SwTIyRvkg.X2sAjAijQlMF8eRe0Cmd2pnv4FDh_CVelIJlcxDePswg.PNG.kjw2878/1773119.png?type=w773">
+            <h1>김 정 우</h1>
+        </div>
+        <div class="profileContent">
+            <h2>MBTI</h2>
+            <h3>ISFP</h3>
+            <h2>나의 장점</h2>
+            <h3>?</h3>
+            <h2>나의 스타일</h2>
+            <h3>?</h3>
+            <h2>블로그 주소</h2>
+            <h3>https://velog.io/@ownage</h3>
+        </div>
+    </div>
+    <div class="mybox" id="post-box">
+        <p>댓글 쓰기</p>
+        <div class="myreply row row-cols-12">
+            <div class="col-2">
+                <div class="input-group mb-3">
+                    <input id="writer" class="form-control" type="text" placeholder="작성자" />
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="input-group mb-3">
+                    <input id="password" class="form-control" type="password" placeholder="비밀번호" />
+                </div>
+            </div>
+        </div>
+        <div class="input-group mb-3">
+            <input id="comment" type="text" class="form-control" placeholder="내용" aria-describedby="button-addon2">
+            <button class="btn btn-outline-dark" type="button" id="button-addon2" onclick="posting()">작성</button>
+        </div>
+    </div>
+    <div class="mybox" id="reply-box">
+        <div id="reply-count">
+            <p>댓글 <span id="count">0</span></p>
+        </div>
+    </div>
+</body>
+
+</html>
