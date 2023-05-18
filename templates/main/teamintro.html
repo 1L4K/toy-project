@@ -1,41 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>팀 소개</title>
-</head>
-<style>
-    .main_box {
-        margin: 20px 5%;
+  </head>
+  <style>
+    .but {
+      font-size: 45px;
+      margin: 20px 5%;
     }
-
-    .but{
-        font-size: 40px;
+    .but > ul {
+      font-size: 25px;
+      margin-left: 20px;
     }
-
+    .but > label {
+      transition: transform 0.2s;
+    }
+    .but > label:hover {
+      transform: scale(1.1);
+      cursor: pointer;
+    }
     #check-btn {
-        display: none;
+      display: none;
     }
-
-    #check-btn:checked~.menubars {
-        display: block;
+    #check-btn:checked ~ .menubars {
+      visibility: visible;
+      height: 30vh;
+      opacity: 1;
     }
 
     .menubars {
-        display: none;
+      visibility: hidden;
+      width: 100%;
+      height: 0vh;
+      margin-top: 10px;
+      transition: all 0.3s;
+      opacity: 0;
     }
-</style>
+  </style>
 
-<body>
-    <div class ="main_box">
-        <div>
-            <label for="check-btn" style="font-size: 60px;">팀 소개</label>
-            <ul class="menubars"style="font-size: 40px;">
-                <li>궁극적인 목표<p>        빠지지말고 끝까지 완주하기</p></li>
-                <li>우리팀의약속<p>        1.빠지게 될경우 미리 팀원에게 먼.저 이야기하기</p><p>        2.P는 이 이상이 귀찮다..</p></li>
-            </ul>
-        </div>
+  <body>
+    <div class="but">
+      <label for="check-btn">팀 소개</label>
+      <input id="check-btn" type="checkbox" value="▼" />
+      <ul class="menubars">
+        <li>
+          궁극적인 목표
+          <p>빠지지말고 끝까지 완주하기</p>
+        </li>
+        <li>
+          우리팀의약속<br />
+          1.빠지게 될경우 미리 팀원에게 먼.저 이야기하기<br />
+          2.P는 이 이상이 귀찮다..
+        </li>
+      </ul>
     </div>
-</body>
+  </body>
 </html>
