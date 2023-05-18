@@ -1,0 +1,105 @@
+<head>
+  <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+      integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+      crossorigin="anonymous"
+    ></script>
+  <script src="bootstrap.bundle.min.js/bootstrap.bundle.js"></script>
+  <script>
+    $(document).ready(function () {});
+    const dropMemberOnClick = (e) => {
+      console.log(window.location.href);
+      var memberId = e.id;
+      window.location.href = window.location.href + `member/${memberId}`;
+    };
+  </script>
+  <style>
+    .navbar {
+      width: 100%;
+      background: rgb(200, 200, 200);
+      height: 85px;
+      /* max-height: 50px; */
+      padding: 7px 15px;
+      /* display: fl; */
+    }
+    img {
+      width: 110px;
+      height: 50px;
+    }
+    .dropdown-menu {
+      min-width: 7rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <img src="{{url_for('static', filename = '/img/icon.png')}}" alt="icon" />
+    </a>
+  </div>
+  <div class="dropdown" style="margin-right: 30px">
+    <button
+      class="btn btn-secondary dropdown-toggle"
+      type="button"
+      id="dropdownMenu2"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      멤버 페이지
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+      <li>
+        <button
+          class="dropdown-item"
+          type="button"
+          id="1"
+          onclick="dropMemberOnClick(this)"
+        >
+          김광일
+        </button>
+      </li>
+      <li>
+        <button
+          class="dropdown-item"
+          id="2"
+          type="button"
+          onclick="dropMemberOnClick(this)"
+        >
+          김정우
+        </button>
+      </li>
+      <li>
+        <button
+          class="dropdown-item"
+          id="3"
+          type="button"
+          onclick="dropMemberOnClick(this)"
+        >
+          이성목
+        </button>
+      </li>
+      <li>
+        <button
+          class="dropdown-item"
+          id="4"
+          type="button"
+          onclick="dropMemberOnClick(this)"
+        >
+          김승수
+        </button>
+      </li>
+      <li>
+        <button
+          disabled
+          class="dropdown-item"
+          id="5"
+          type="button"
+          onclick="dropMemberOnClick(this)"
+        >
+          김진우
+        </button>
+      </li>
+    </ul>
+  </div>
+</nav>
