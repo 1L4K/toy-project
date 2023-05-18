@@ -119,43 +119,40 @@
             fetch('/reply').then((res) => res.json()).then((data) => {
                 let rows = data['result']
                 rows.forEach((a) => {
-                    let writer = a['writer']
+                    let member_id = document.location.href.slice(-1);
+                    console.log(member_id);
+                    let id = a['id']
+                    let name = a['name']
                     let comment = a['comment']
 
-                    let temp_html = `<li>
+                    if (id == member_id) {
+                        let temp_html = `<li>
                                         <div class="input-group">
-                                            <label class="input-group-text">${writer}</label>
+                                            <label class="input-group-text">${name}</label>
                                             <span type="text" class="form-control">${comment}</span>
-                                            <button class="btn btn-outline-dark" type="button" onclick="replyDelete()">삭제</button>
+                                            <button class="btn btn-outline-dark" type="button">삭제</button>
                                         </div>
                                     </li>`
-                    $('#reply-box').append(temp_html)
+                        $('#reply-box').append(temp_html)
+                    }
                 })
             })
         }
 
         function posting() {
-            let writer = $('#writer').val()
-            let password = $('#password').val()
+            let id = document.location.href.slice(-1);
+            let name = $('#name').val()
             let comment = $('#comment').val()
 
             let formData = new FormData();
-            formData.append("writer_give", writer);
-            formData.append("password_give", password);
+            formData.append("id_give", id);
+            formData.append("name_give", name);
             formData.append("comment_give", comment);
 
             fetch('/reply', { method: "POST", body: formData }).then((res) => res.json()).then((data) => {
                 alert(data['msg'])
                 window.location.reload()
             })
-        }
-
-        function replyDelete() {
-            let writer = $('#writer').val()
-
-            let formData = new FormData();
-            formData.append("writer_give", writer);
-            fetch('/reply', { method: "DELETE", body: formData })
         }
     </script>
 </head>
@@ -205,12 +202,7 @@
         <div class="myreply row row-cols-12">
             <div class="col-2">
                 <div class="input-group mb-3">
-                    <input id="writer" class="form-control" type="text" placeholder="작성자" />
-                </div>
-            </div>
-            <div class="col-2">
-                <div class="input-group mb-3">
-                    <input id="password" class="form-control" type="password" placeholder="비밀번호" />
+                    <input id="name" class="form-control" type="text" placeholder="작성자" />
                 </div>
             </div>
         </div>
