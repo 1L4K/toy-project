@@ -1,41 +1,42 @@
 @charset "utf-8";
 
 .guestbook {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
 }
 .member_post {
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
-    justify-content: center;
-    margin: 20px 20px 20px 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  margin: 20px 20px 20px 20px;
 }
-.member_post>.form-floating {
-    width: 100%;
+.member_post > .form-floating {
+  width: 100%;
+  margin-right: 10px;
 }
-.member_post>#post_nickname {
-    width: 10%;
-    min-width: 100px;
-    max-width: 500px;
+.member_post > #post_nickname {
+  width: 10%;
+  min-width: 100px;
+  max-width: 500px;
 }
-.member_post>button {
-    width: 100px;
-    height: calc(3.5rem + 2px);
+.member_post > button {
+  width: 100px;
+  height: calc(3.5rem + 2px);
 }
 
 .post_list {
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
-    justify-content: center;
-    margin: 20px 20px 20px 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  margin: 20px 20px 20px 20px;
 }
 
-.post_list>.table>thead>tr>.th-1 {
-    width: 10%;
-    min-width: 100px;
-    max-width: 500px;
+.post_list > .table > thead > tr > .th-1 {
+  width: 10%;
+  min-width: 100px;
+  max-width: 500px;
 }

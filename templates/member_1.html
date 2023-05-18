@@ -2,26 +2,29 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
       integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
       crossorigin="anonymous"
     ></script>
     <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-    crossorigin="anonymous"
-  />
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"
-  ></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+<<<<<<< Updated upstream
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+=======
+>>>>>>> Stashed changes
 
     <title>김 사이에 낀 이</title>
 
@@ -35,6 +38,10 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap"
       rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/guestbook.css') }}"
     />
     <style>
       * {
@@ -97,8 +104,7 @@
         max-width: 70%;
         max-height: 50%;
         margin: 170px auto 30px auto;
-        background: gray;
-        box-shadow: 3px 0px 3px 0px black;
+        /* box-shadow: 3px 0px 3px 0px black; */
         padding: 20px;
       }
       .comment_box {
@@ -127,17 +133,10 @@
               let comment = a["comment"];
 
               if (id == member_id) {
-                let temp_html = `<div class="row gx-3 mb-3 comment_list">
-                                            <div class="col-2">
-                                              <div class="border bg-white rounded py-1 px-2">${name}</div>
-                                            </div>
-                                            <div class="col-8">
-                                              <div class="border bg-white rounded py-1 px-2">${comment}</div>
-                                            </div>
-                                            <div class="col-2">
-                                              <div class="border bg-white rounded py-1 px-2">timestamp</div>
-                                            </div>
-                                          </div>`;
+                let temp_html = `<tr>
+                                    <td>${name}</td>
+                                    <td>${comment}</td>
+                                </tr>`;
                 $("#reply-box").append(temp_html);
               }
             });
@@ -166,11 +165,7 @@
   <body>
     {% include "./main/navbar.html" %}
     <div class="bg-light">
-      <img
-        class="bg_img"
-        src=""
-        alt=""
-      />
+      <img class="bg_img" alt="" />
       <div class="profile">
         <div class="white_circle">
           <img
@@ -180,11 +175,12 @@
           />
         </div>
         <div class="present">
-          <div class="name">아이묭</div>
+          <div class="name">김광일</div>
           <div class="description">
             <div>MBTI : ENTP</div>
             <div>나의 장점 : 엉덩이가 무겁다.</div>
             <div>나의 스타일 : 내가 할 일은 내가 끝낸다.</div>
+            <div>좋아하는 가수 : 아이묭</div>
             <div>
               GitHub :
               <a href="https://www.github.com/kki4504" target="_blank">
@@ -201,29 +197,77 @@
         </div>
       </div>
       <div class="main_box">
-        <div class="container" style="background: gray">
+        <div class="container">
           <!-- 입력 폼 -->
+<<<<<<< Updated upstream
           <div class="row gx-3">
             <div class="col-2">
-              <input type="text" id="name" class="form-control" placeholder="username" />
+              <input
+                type="text"
+                id="name"
+                class="form-control"
+                placeholder="username"
+              />
             </div>
             <div class="col-8">
-            <input type="text" id="comment" class="form-control" placeholder="comment" />
+              <input
+                type="text"
+                id="comment"
+                class="form-control"
+                placeholder="comment"
+              />
             </div>
             <div class="col-2 pl-4 ml-4">
               <button
-              class="btn btn-outline-light"
-              type="button"
-              style="width: 100%"
-              onclick="posting()"
+                class="btn btn-outline-light"
+                type="button"
+                style="width: 100%"
+                onclick="posting()"
               >
                 post
+=======
+          <div class="guestbook">
+            <h2 style="text-align: center">방명록</h2>
+            <div class="member_post">
+              <div class="form-floating mb-3" id="post_nickname">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  placeholder="url"
+                />
+                <label for="floatingInput">Writer</label>
+              </div>
+              <div class="form-floating">
+                <textarea
+                  class="form-control"
+                  placeholder="Leave a comment here"
+                  id="comment"
+                ></textarea>
+                <label for="floatingTextarea2">Please comment</label>
+              </div>
+              <button onclick="posting()" type="button" class="btn btn-dark">
+                Post
+>>>>>>> Stashed changes
               </button>
+            </div>
+            <div class="post_list comment_box">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col" class="th-1">Writer</th>
+                    <th scope="col">comment</th>
+                  </tr>
+                </thead>
+                <tbody id="reply-box"></tbody>
+              </table>
             </div>
           </div>
         </div>
-        <div class="comment_box container mt-5" id="reply-box">
-        </div>
+<<<<<<< Updated upstream
+        <div class="comment_box container mt-5" id="reply-box"></div>
+=======
+>>>>>>> Stashed changes
       </div>
     </div>
   </body>
