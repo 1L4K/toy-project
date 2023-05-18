@@ -22,18 +22,13 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap"
     rel="stylesheet" />
-  <style>
-  </style>
-  <script>
-    $(document).ready(function () {
-      $("#guestbook").load("guestbook.html");  // jquery를 통한 html 가져오기 header, footer 등 원하는 파일 경로를 삽입하면 된다
-    });
-  </script>
+  <style></style>
+  <script></script>
 </head>
 
 <body>
   <h1>저희 팀을 소개합니다.</h1>
-  <div id="guestbook"></div>
+  {% extends './main/guestbook.html' %}
 </body>
 
 </html>
