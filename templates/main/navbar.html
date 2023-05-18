@@ -10,7 +10,7 @@
     const dropMemberOnClick = (e) => {
       console.log(window.location.href);
       var memberId = e.id;
-      window.location.href = window.location.href + `member/${memberId}`;
+      window.location.href = `/member/${memberId}`;
     };
   </script>
   <style>
@@ -22,7 +22,7 @@
       padding: 7px 15px;
       /* display: fl; */
     }
-    img {
+    .navbar-brand > img {
       width: 110px;
       height: 50px;
     }
