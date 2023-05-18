@@ -37,5 +37,24 @@ def reply_get():
     all_replys = list(db.replys.find({},{'_id':False}))
     return jsonify({'result':all_replys})
 
+
+@app.route("/board", methods=["POST"])
+def board_post():
+    name_receive = request.form['name_give']
+    comment_receive = request.form['comment_give']
+    doc = {
+        'name':name_receive,
+        'comment':comment_receive
+    }
+    db.board.insert_one(doc)
+    return jsonify({'msg':'댓글 작성완료!'})
+
+
+@app.route("/board", methods=["GET"])
+def board_get():
+    all_board = list(db.board.find({},{'_id':False}))
+    return jsonify({'result':all_board})
+
+
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5001, debug=True)
