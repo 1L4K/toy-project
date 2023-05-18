@@ -1,0 +1,123 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <style>
+        .mycards {
+            margin: 20px 20px 20px 20px;
+            max-height: 700px;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            flex-flow: row nowrap;
+        }
+
+        .rotation {
+            width: 200px;
+            height: 300px;
+            border-radius: 10px;            
+            margin: 10px 10px 10px 10px;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .rotation .item {
+            width: 200px;
+            height: 300px;    
+            border-radius: 10px;
+            margin: 10px 10px 10px 10px;
+
+            border: 1px solid #828282;
+            backface-visibility: hidden;            
+            transition: 1s;      
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .rotation .item.black {            
+            background-color: black;                    
+            color: white;
+        }
+
+        .rotation .item.white {            
+            background-color: white;
+            color: black
+        }
+
+        .rotation .item>img {
+            height: 250px;
+            width: 200px;
+        }
+
+        .rotation .item.front {
+            position: absolute;
+            transform: rotateY(0deg);
+        }
+
+        .rotation:hover .item.front {
+            transform: rotateY(-180deg);
+        }
+
+        .rotation .item.back {
+            transform: rotateY(180deg);
+        }
+
+        .rotation:hover .item.back {
+            transform: rotateY(0deg);
+        }
+    </style>
+    <script>
+    </script>
+</head>
+
+<div class="mycards">
+    <div class="row row-cols-md-4" id="cards-box">
+        <div class="rotation" onclick="location.href='/member/1'">
+            <div class="item black front">
+                <img src="#" alt="img front">
+                <h1>김광일</h1>
+            </div>
+            <div class="item black back">
+                <img src="#" alt="img back">
+                <h1>뒷 면</h1>
+            </div>
+        </div>
+        <div class="rotation" onclick="location.href='/member/2'">
+            <div class="item black front">
+                <img src="#" alt="img front">
+                <h1>김정우</h1>
+            </div>
+            <div class="item black back">
+                <img src="#" alt="img back">
+                <h1>뒷 면</h1>
+            </div>
+        </div>
+        <div class="rotation" onclick="location.href='/member/3'">
+            <div class="item white front">
+                <img src="#" alt="img front">
+                <h1>이성목</h1>
+            </div>
+            <div class="item white back">
+                <img src="#" alt="img back">
+                <h1>뒷 면</h1>
+            </div>
+        </div>
+        <div class="rotation" onclick="location.href='/member/4'">
+            <div class="item black front">
+                <img src="#" alt="img front">
+                <h1>김승수</h1>
+            </div>
+            <div class="item black back">
+                <img src="#" alt="img back">
+                <h1>뒷 면</h1>
+            </div>
+        </div>
+    </div>
+</div>
