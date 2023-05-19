@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request, jsonify
 from pymongo import MongoClient
 import certifi
+from bson import ObjectId
+from bson.json_util import dumps 
 
 ca = certifi.where()
 
@@ -34,8 +36,14 @@ def reply_post():
 
 @app.route("/reply", methods=["GET"])
 def reply_get():
-    all_replys = list(db.replys.find({},{'_id':False}))
-    return jsonify({'result':all_replys})
+    all_replys = list(db.replys.find())
+    return jsonify({'result': dumps(all_replys)})
+
+@app.route("/reply", methods=["DELETE"])
+def reply_delete():
+    _id_receive = ObjectId(request.form['_id_give'])
+    db.replys.delete_one({"_id": _id_receive})
+    return jsonify({'msg':'댓글 삭제완료!'})
 
 
 @app.route("/board", methods=["POST"])
@@ -49,12 +57,16 @@ def board_post():
     db.board.insert_one(doc)
     return jsonify({'msg':'댓글 작성완료!'})
 
-
 @app.route("/board", methods=["GET"])
 def board_get():
-    all_board = list(db.board.find({},{'_id':False}))
-    return jsonify({'result':all_board})
+    all_board = list(db.board.find())
+    return jsonify({'result': dumps(all_board)})
 
+@app.route("/board", methods=["DELETE"])
+def board_delete():
+    _id_receive = ObjectId(request.form['_id_give'])
+    db.board.delete_one({"_id": _id_receive})
+    return jsonify({'msg':'댓글 삭제완료!'})
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5001, debug=True)
