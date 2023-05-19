@@ -12,20 +12,33 @@
     rel="stylesheet"
   />
   <style>
-    * {
-        font-family: "Noto Serif KR", serif;
-      }
     .navbar {
       width: 100%;
       background: rgb(200, 200, 200);
       height: 85px;
       /* max-height: 50px; */
-      padding: 7px 15px;
+      /* padding: 7px 15px; */
       /* display: fl; */
+
+      font-family: "Noto Serif KR", serif;
+
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      flex-flow: row nowrap;
+    }
+    
+    .navbar .container {
+      margin: 0px 0px 0px 0px;
     }
     .navbar-brand > img {
       width: 110px;
       height: 50px;
+    }
+
+    .navbar .dropdown {
+      width: 150px;
     }
     .dropdown-menu {
       min-width: 7rem;
@@ -36,10 +49,10 @@
 <nav class="navbar navbar-expand-lg">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <img src="{{url_for('static', filename = '/img/icon.png')}}" alt="icon" />
+      <img src="{{url_for('static', filename = '/img/team_logo.png')}}" alt="icon" />
     </a>
   </div>
-  <div class="dropdown" style="margin-right: 30px">
+  <div class="dropdown">
     <button
       class="btn btn-secondary dropdown-toggle"
       type="button"
