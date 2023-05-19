@@ -37,24 +37,6 @@
       background-size: cover;
     }
 
-    .mytitle>button {
-      width: 250px;
-      height: 50px;
-
-      background-color: transparent;
-
-      border: 1px solid white;
-      color: white;
-
-      border-radius: 50px;
-
-      margin-top: 20px;
-    }
-
-    .mytitle>button:hover {
-      border: 2px solid white;
-    }
-
     .mycomment {
       color: gray;
     }
@@ -75,18 +57,7 @@
       box-shadow: 0px 0px 3px 0px gray;
     }
 
-    .mybtn {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
 
-      margin-top: 20px;
-    }
-
-    .mybtn>button {
-      margin-right: 10px;
-    }
 
     .card {
       width: 100%;
@@ -104,20 +75,98 @@
     .back {
       backface-visibility: hidden;
       transform: rotateY(180deg);
-      font-size: 50px;
+      font-size: 35px;
     }
 
     .flip:hover .card {
       transform: rotateY(180deg);
     }
+    .mybox {
+      width: 95%;
+      max-width: 1000px;
+      padding: 20px;
+      box-shadow: 0px 0px 10px 0px gray;
+      margin: 20px auto;
+      border-radius: 10px;
+  }
+    .myreply {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+  }
+
+  .myreply .comment {
+      justify-content: space-between;
+  }
+
+
+  .myreply>input {
+      width: 70%;
+  }
+
+  .mybox>li {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+
+      margin-bottom: 10px;
+      min-height: 48px;
+  }
   </style>
+  <script>
+    // const replyCount = document.querySelector('')
+
+    $(document).ready(function () {
+        listing();
+    });
+
+    function listing() {
+        fetch('/reply').then((res) => res.json()).then((data) => {
+            let rows = data['result']
+            rows.forEach((a) => {
+                let member_id = document.location.href.slice(-1);
+                let id = a['id']
+                let name = a['name']
+                let comment = a['comment']
+
+                if (id == member_id) {
+                    let temp_html = `<li>
+                                    <div class="input-group">
+                                        <label class="input-group-text">${name}</label>
+                                        <span type="text" class="form-control">${comment}</span>
+                                        <button class="btn btn-outline-dark" type="button">삭제</button>
+                                    </div>
+                                </li>`
+                    $('#reply-box').append(temp_html)
+                }
+            })
+        })
+    }
+
+    function posting() {
+        let id = document.location.href.slice(-1);
+        let name = $('#name').val()
+        let comment = $('#comment').val()
+
+        let formData = new FormData();
+        formData.append("id_give", id);
+        formData.append("name_give", name);
+        formData.append("comment_give", comment);
+
+        fetch('/reply', { method: "POST", body: formData }).then((res) => res.json()).then((data) => {
+            alert(data['msg'])
+            window.location.reload()
+        })
+    }
+    
+</script>
 </head>
 
 <body>
   {% include "./main/navbar.html" %}
   <div class="mytitle">
     <h1>김 사이에 끼어버린 이</h1>
-    <button>돌아가기</button>
   </div>
   <div class="flip">
     <div class="card">
@@ -128,23 +177,29 @@
         <h5 class="card-title">이성목</h5>
         <p class="card-text">나이: 00년생 24살</p>
         <p>MBTI: ENFP</p>
-        <p class="mycomment">
-          장점<br />낯선사람과도 친하게 이야기 할수있어요!
-        </p>
+        <p>블로그 <br/>https://rewell.tistory.com/<p>
+        <p class="mycomment">장점<br />낯선사람과도 친하게 이야기 할수있어요!</p>
       </div>
     </div>
   </div>
-  <div class="mypost">
-    <div class="form-floating mb-3">
-      <input type="text" class="form-control" id="name" placeholder="url" />
-      <label for="floatingInput">이름(닉네임)</label>
+  <div class="mybox" id="post-box">
+    <p>댓글 쓰기</p>
+    <div class="myreply row row-cols-12">
+        <div class="col-2">
+            <div class="input-group mb-3">
+                <input id="name" class="form-control" type="text" placeholder="작성자" />
+            </div>
+        </div>
     </div>
-    <div class="form-floating">
-      <textarea class="form-control" placeholder="Leave a comment here" id="comment" style="height: 100px"></textarea>
-      <label for="floatingTextarea2">댓글</label>
+    <div class="input-group mb-3">
+        <input id="comment" type="text" class="form-control" placeholder="내용" aria-describedby="button-addon2">
+        <button class="btn btn-outline-dark" type="button" id="button-addon2" onclick="posting()">작성</button>
     </div>
-    <button onclick="save_comment()" type="button" class="btn btn-dark">댓글 남기기</button>
-  </div>
-</body>
+ </div>
+<div class="mybox" id="reply-box">
+    <div id="reply-count">
+        <p>댓글 <span id="count">0</span></p>
+    </div>
+</div>
 
 </html>
