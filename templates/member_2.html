@@ -11,9 +11,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script> -->
     <title>개인 페이지</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
@@ -128,19 +125,19 @@
 
         function listing() {
             fetch('/reply').then((res) => res.json()).then((data) => {
-                let rows = data['result']
+                let rows = JSON.parse(data['result'])
                 rows.forEach((a) => {
                     let member_id = document.location.href.slice(-1);
                     let id = a['id']
+                    let _id = a['_id']['$oid']
                     let name = a['name']
                     let comment = a['comment']
-
                     if (id == member_id) {
                         let temp_html = `<li>
                                         <div class="input-group">
                                             <label class="input-group-text">${name}</label>
                                             <span type="text" class="form-control">${comment}</span>
-                                            <button class="btn btn-outline-dark" type="button">삭제</button>
+                                            <button onclick="deleting('${_id}')" class="btn btn-outline-dark" type="button">삭제</button>
                                         </div>
                                     </li>`
                         $('#reply-box').append(temp_html)
@@ -160,6 +157,17 @@
             formData.append("comment_give", comment);
 
             fetch('/reply', { method: "POST", body: formData }).then((res) => res.json()).then((data) => {
+                alert(data['msg'])
+                window.location.reload()
+            })
+        }
+
+        function deleting(b) {
+            let formData = new FormData();
+            formData.append("_id_give", b);
+
+            fetch('/reply', {method: "DELETE", body: formData}).then((res) =>
+            res.json()).then((data) => {
                 alert(data['msg'])
                 window.location.reload()
             })
