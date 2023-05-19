@@ -1,238 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-      integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
-      crossorigin="anonymous"
-    ></script>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
 
-    <title>김 사이에 낀 이</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"></script> -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
 
-    <meta property="og:title" content="김 사이에 낀 이" />
-    <meta property="og:description" content="저희 팀을 소개합니다!" />
-    <meta
-      property="og:image"
-      content="https://mblogthumb-phinf.pstatic.net/MjAyMDAzMjNfMTk4/MDAxNTg0OTQ0NTE0ODQ1.B-zksD76qpxutpvU9yqwPCmpbKw0HZD6kFZtPROpGwog.bQVLipDRlkQ5og3OFdCSyULd_Q1r0sfciaPFxg6ajPcg.PNG.japansisa/%EC%BA%A1%EC%B2%98.PNG?type=w800"
-    />
+  <title>김 사이에 낀 이</title>
 
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='css/guestbook.css') }}"
-    />
-    <style>
-      * {
-        font-family: "Noto Serif KR", serif;
-      }
-      .bg_img {
-        /* margin-top: ; */
-        width: 100%;
-        height: 400px;
+  <meta property="og:title" content="김 사이에 낀 이" />
+  <meta property="og:description" content="저희 팀을 소개합니다!" />
+  <meta property="og:image"
+    content="https://mblogthumb-phinf.pstatic.net/MjAyMDAzMjNfMTk4/MDAxNTg0OTQ0NTE0ODQ1.B-zksD76qpxutpvU9yqwPCmpbKw0HZD6kFZtPROpGwog.bQVLipDRlkQ5og3OFdCSyULd_Q1r0sfciaPFxg6ajPcg.PNG.japansisa/%EC%BA%A1%EC%B2%98.PNG?type=w800" />
 
-        background-image: linear-gradient(
-            0deg,
-            rgba(0, 0, 0, 0.6),
-            rgba(0, 0, 0, 0.6)
-          ),
-          url("https://mblogthumb-phinf.pstatic.net/MjAyMDAzMjNfMTk4/MDAxNTg0OTQ0NTE0ODQ1.B-zksD76qpxutpvU9yqwPCmpbKw0HZD6kFZtPROpGwog.bQVLipDRlkQ5og3OFdCSyULd_Q1r0sfciaPFxg6ajPcg.PNG.japansisa/%EC%BA%A1%EC%B2%98.PNG?type=w800");
-        background-position: center 45%;
-        background-size: cover;
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/guestbook.css') }}" />
+  <style>
+    * {
+      font-family: "Noto Serif KR", serif;
+    }
 
-        color: white;
-        display: flex;
+    .bg_img {
+      /* margin-top: ; */
+      width: 100%;
+      height: 400px;
 
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-      }
-      .profile {
-        margin: 0 10%;
-        display: flex;
-        position: absolute;
-        top: 340px;
-        height: 280px;
-      }
-      .white_circle {
-        width: 210px;
-        height: 210px;
-        border-radius: 100%;
-        background: white;
-        padding: 5px;
-      }
-      .white_circle > img {
-        width: 100%;
-        height: 100%;
-        border-radius: 100%;
-      }
-      .present {
-        margin-left: 20px;
-        margin-top: 40px;
-      }
-      .name {
-        color: white;
-        font-weight: lighter;
-        font-size: 60px;
-      }
-      .description {
-        margin-top: 20px;
-      }
-      .main_box {
-        width: 100%;
-        max-width: 70%;
-        max-height: 50%;
-        margin: 170px auto 30px auto;
-        /* box-shadow: 3px 0px 3px 0px black; */
-        padding: 20px;
-      }
-      .comment_box {
-        width: 100%;
-        height: 200px;
-        overflow-y: scroll;
-      }
-      .comment_box::-webkit-scrollbar {
-        display: none;
-      }
-    </style>
-    <script>
-      $(document).ready(function () {
-        listing();
-      });
-      function listing() {
-        fetch("/reply")
-          .then((res) => res.json())
-          .then((data) => {
-            let rows = data["result"];
-            rows.forEach((a) => {
-              let member_id = document.location.href.slice(-1);
-              console.log(member_id);
-              let id = a["id"];
-              let name = a["name"];
-              let comment = a["comment"];
+      background-image: linear-gradient(0deg,
+          rgba(0, 0, 0, 0.6),
+          rgba(0, 0, 0, 0.6)),
+        url("https://mblogthumb-phinf.pstatic.net/MjAyMDAzMjNfMTk4/MDAxNTg0OTQ0NTE0ODQ1.B-zksD76qpxutpvU9yqwPCmpbKw0HZD6kFZtPROpGwog.bQVLipDRlkQ5og3OFdCSyULd_Q1r0sfciaPFxg6ajPcg.PNG.japansisa/%EC%BA%A1%EC%B2%98.PNG?type=w800");
+      background-position: center 45%;
+      background-size: cover;
 
-              if (id == member_id) {
-                let temp_html = `<tr>
+      color: white;
+      display: flex;
+
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .profile {
+      margin: 0 10%;
+      display: flex;
+      position: absolute;
+      top: 340px;
+      height: 280px;
+    }
+
+    .white_circle {
+      width: 210px;
+      height: 210px;
+      border-radius: 100%;
+      background: white;
+      padding: 5px;
+    }
+
+    .white_circle>img {
+      width: 100%;
+      height: 100%;
+      border-radius: 100%;
+    }
+
+    .present {
+      margin-left: 20px;
+      margin-top: 40px;
+    }
+
+    .name {
+      color: white;
+      font-weight: lighter;
+      font-size: 60px;
+    }
+
+    .description {
+      margin-top: 20px;
+    }
+
+    .main_box {
+      width: 100%;
+      max-width: 70%;
+      max-height: 50%;
+      margin: 170px auto 30px auto;
+      /* box-shadow: 3px 0px 3px 0px black; */
+      padding: 20px;
+    }
+
+    .comment_box {
+      width: 100%;
+      height: 200px;
+      overflow-y: scroll;
+    }
+
+    .comment_box::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+  <script>
+    $(document).ready(function () {
+      listing();
+    });
+    function listing() {
+      fetch("/reply")
+        .then((res) => res.json())
+        .then((data) => {
+          let rows = data["result"];
+          rows.forEach((a) => {
+            let member_id = document.location.href.slice(-1);
+            console.log(member_id);
+            let id = a["id"];
+            let name = a["name"];
+            let comment = a["comment"];
+
+            if (id == member_id) {
+              let temp_html = `<tr>
                                     <td>${name}</td>
                                     <td>${comment}</td>
                                 </tr>`;
-                $("#reply-box").append(temp_html);
-              }
-            });
+              $("#reply-box").append(temp_html);
+            }
           });
-      }
+        });
+    }
 
-      function posting() {
-        let id = document.location.href.slice(-1);
-        let name = $("#name").val();
-        let comment = $("#comment").val();
+    function posting() {
+      let id = document.location.href.slice(-1);
+      let name = $("#name").val();
+      let comment = $("#comment").val();
 
-        let formData = new FormData();
-        formData.append("id_give", id);
-        formData.append("name_give", name);
-        formData.append("comment_give", comment);
+      let formData = new FormData();
+      formData.append("id_give", id);
+      formData.append("name_give", name);
+      formData.append("comment_give", comment);
 
-        fetch("/reply", { method: "POST", body: formData })
-          .then((res) => res.json())
-          .then((data) => {
-            alert(data["msg"]);
-            window.location.reload();
-          });
-      }
-    </script>
-  </head>
-  <body>
-    {% include "./main/navbar.html" %}
-    <div class="bg-light">
-      <img class="bg_img" alt="" />
-      <div class="profile">
-        <div class="white_circle">
-          <img
-            class=""
-            src="https://blog.kakaocdn.net/dn/sqgyF/btqyQTVVXAo/ernemhmKZIhdCzXzewJ3OK/img.jpg"
-            alt=""
-          />
-        </div>
-        <div class="present">
-          <div class="name">김광일</div>
-          <div class="description">
-            <div>MBTI : ENTP</div>
-            <div>나의 장점 : 엉덩이가 무겁다.</div>
-            <div>나의 스타일 : 내가 할 일은 내가 끝낸다.</div>
-            <div>좋아하는 가수 : 아이묭</div>
-            <div>
-              GitHub :
-              <a href="https://www.github.com/kki4504" target="_blank">
-                https://www.github.com/kki4504
-              </a>
-            </div>
-            <div>
-              Blog :
-              <a href="https://www.velog.io/kki4504" target="_blank"
-                >https://www.velog.io/kki4504</a
-              >
-            </div>
-          </div>
-        </div>
+      fetch("/reply", { method: "POST", body: formData })
+        .then((res) => res.json())
+        .then((data) => {
+          alert(data["msg"]);
+          window.location.reload();
+        });
+    }
+  </script>
+</head>
+
+<body>
+  {% include "./main/navbar.html" %}
+  <div class="bg-light">
+    <img class="bg_img" alt="" />
+    <div class="profile">
+      <div class="white_circle">
+        <img class="" src="https://blog.kakaocdn.net/dn/sqgyF/btqyQTVVXAo/ernemhmKZIhdCzXzewJ3OK/img.jpg" alt="" />
       </div>
-      <div class="main_box">
-        <div class="container">
-          <!-- 입력 폼 -->
-          <div class="guestbook">
-            <h2 style="text-align: center">방명록</h2>
-            <div class="member_post">
-              <div class="form-floating mb-3" id="post_nickname">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="name"
-                  placeholder="url"
-                />
-                <label for="floatingInput">Writer</label>
-              </div>
-              <div class="form-floating">
-                <textarea
-                  class="form-control"
-                  placeholder="Leave a comment here"
-                  id="comment"
-                ></textarea>
-                <label for="floatingTextarea2">Please comment</label>
-              </div>
-              <button onclick="posting()" type="button" class="btn btn-dark">
-                Post
-              </button>
-            </div>
-            <div class="post_list comment_box">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col" class="th-1">Writer</th>
-                    <th scope="col">comment</th>
-                  </tr>
-                </thead>
-                <tbody id="reply-box"></tbody>
-              </table>
-            </div>
+      <div class="present">
+        <div class="name">김광일</div>
+        <div class="description">
+          <div>MBTI : ENTP</div>
+          <div>나의 장점 : 엉덩이가 무겁다.</div>
+          <div>나의 스타일 : 내가 할 일은 내가 끝낸다.</div>
+          <div>좋아하는 가수 : 아이묭</div>
+          <div>
+            GitHub :
+            <a href="https://www.github.com/kki4504" target="_blank">
+              https://www.github.com/kki4504
+            </a>
+          </div>
+          <div>
+            Blog :
+            <a href="https://www.velog.io/kki4504" target="_blank">https://www.velog.io/kki4504</a>
           </div>
         </div>
       </div>
     </div>
-  </body>
+    <div class="main_box">
+      <div class="container">
+        <!-- 입력 폼 -->
+        <div class="guestbook">
+          <h2 style="text-align: center">방명록</h2>
+          <div class="member_post">
+            <div class="form-floating mb-3" id="post_nickname">
+              <input type="text" class="form-control" id="name" placeholder="url" />
+              <label for="floatingInput">Writer</label>
+            </div>
+            <div class="form-floating">
+              <textarea class="form-control" placeholder="Leave a comment here" id="comment"></textarea>
+              <label for="floatingTextarea2">Please comment</label>
+            </div>
+            <button onclick="posting()" type="button" class="btn btn-dark">
+              Post
+            </button>
+          </div>
+          <div class="post_list comment_box">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col" class="th-1">Writer</th>
+                  <th scope="col">comment</th>
+                </tr>
+              </thead>
+              <tbody id="reply-box"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
 </html>
