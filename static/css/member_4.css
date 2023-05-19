@@ -48,12 +48,14 @@
     flex-direction: row;
     align-items: normal;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .mypost {
     width: 50%;
+    min-width: 300px;
     max-width: 500px;
-    margin: 20px 20px 20px auto;
+    margin: 20px auto 20px auto;
 }
 
 .mypost>button {
